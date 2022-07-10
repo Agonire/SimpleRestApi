@@ -14,12 +14,10 @@ namespace SimpleRestApi.Controllers
     [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
         private readonly IUserService _userService;
         private readonly JwtSettings _jwtSettings;
-        public LoginController(ILogger<WeatherForecastController> logger, IUserService userService, IOptions<JwtSettings> jwtSettings)
+        public LoginController(IUserService userService, IOptions<JwtSettings> jwtSettings)
         {
-            _logger = logger;
             _userService = userService;
             _jwtSettings = jwtSettings.Value;
         }

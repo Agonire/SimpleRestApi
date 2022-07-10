@@ -12,15 +12,13 @@ using System.Text;
 namespace SimpleRestApi.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]/[action]")]
     public class ProductController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
         private readonly IProductService _productService;
-        public ProductController(ILogger<WeatherForecastController> logger, IProductService productService)
+        public ProductController(IProductService productService)
         {
-            _logger = logger;
             _productService = productService;
         }
         [HttpGet]
